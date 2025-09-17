@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #13ecc8;
+      }
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+    </style>
+</head>
+<body class="relative flex h-auto min-h-screen w-full flex-col bg-[#111817] dark group/design-root overflow-x-hidden" style="--checkbox-tick-svg: url('data:image/svg+xml,%3csvg viewBox=%270 0 16 16%27 fill=%27rgb(17,24,23)%27 xmlns=%27http://www.w3.org/2000/svg%27%3e%3cpath d=%27M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z%27/%3e%3c/svg%3e'); font-family: Lexend, &quot;Noto Sans&quot;, sans-serif;">
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#283936] px-10 py-4">
+<div class="flex items-center gap-4 text-white">
+<svg class="text-[var(--primary-color)]" fill="none" height="32" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" width="32" xmlns="http://www.w3.org/2000/svg">
+<path d="M10.2 2.2c-1.1.2-2 .8-2.6 1.7-2.6 3.9-1.3 9.4 2.6 12 3.9 2.6 9.4 1.3 12-2.6 2.6-3.9 1.3-9.4-2.6-12-1.9-1.2-4.1-1.4-6.1-1.1"></path>
+<path d="M4 14.8V12c0-2.8.9-5.3 2.4-7.1"></path>
+<path d="M5.4 6.8c1.5-1.8 3.6-2.9 6.1-3.2"></path>
+<path d="M17 19.8c-1.8 1.4-4.2 2-6.5 1.7"></path>
+<path d="M12.6 2.2c-.3 0-.5.2-.6.5v4.3c0 .6.4 1 1 1h4.3c.3 0 .5-.2.5-.5s-.2-.5-.5-.5h-3.8V2.7c0-.3-.2-.5-.5-.5z"></path>
+</svg>
+<h2 class="text-white text-xl font-bold leading-tight tracking-[-0.015em]">FitLife</h2>
+</div>
+<nav class="flex items-center gap-8 text-base">
+<a class="text-white hover:text-[var(--primary-color)] transition-colors" href="#">Dashboard</a>
+<a class="text-[var(--primary-color)] font-medium" href="#">Workout</a>
+<a class="text-white hover:text-[var(--primary-color)] transition-colors" href="#">Nutrition</a>
+<a class="text-white hover:text-[var(--primary-color)] transition-colors" href="#">Note</a>
+<a class="text-white hover:text-[var(--primary-color)] transition-colors" href="#">Settings</a>
+</nav>
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBFolKlvISDM_w9wwl-zi4iDpcK1KJ5Xb491wWbaI8pm0mZ8wmCrvhb86yZLdHwqePzi5I5V6zEu9v48cJH64RiiwhQtZiWdbVuBPLenjy0S-D3THhIhD3mgiakhLdfqc8P2l3AoFRDqE3SnGVfMz-cxXM-YC0u7XgJTc8JGmhWFFUc2qYqtqJ1jmEy50Rf3055bFOYHNmcgp-3NCV3PFm2sb8TAjrXBzPgt9kXzvUhqN_IsazE3rdcKF1NuZ02wQ2acpRhgba7r9uf");'></div>
+</header>
+<main class="px-16 lg:px-24 xl:px-40 flex flex-1 justify-center py-8">
+<div class="layout-content-container flex flex-col w-full max-w-[960px] flex-1 gap-8">
+<div class="flex flex-col gap-2">
+<h1 class="text-white text-4xl font-bold">Workout Planner</h1>
+<p class="text-[#9db9b4] text-lg">Plan your fitness journey with our intuitive workout planner. Add exercises, set goals, and track your progress effortlessly.</p>
+</div>
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4">
+<h3 class="text-white text-lg font-medium">Filter by:</h3>
+<div class="flex gap-2 flex-wrap">
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-md bg-[var(--primary-color)] text-[#111817] px-4">
+<p class="text-sm font-bold">All</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-md bg-[#283936] hover:bg-[#3b544f] transition-colors px-4">
+<p class="text-white text-sm font-medium">Legs</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-md bg-[#283936] hover:bg-[#3b544f] transition-colors px-4">
+<p class="text-white text-sm font-medium">Arms</p>
+</button>
+<button class="flex h-10 shrink-0 items-center justify-center gap-x-2 rounded-md bg-[#283936] hover:bg-[#3b544f] transition-colors px-4">
+<p class="text-white text-sm font-medium">Core</p>
+</button>
+</div>
+</div>
+<div class="flex flex-col rounded-md border border-[#283936]">
+<div class="flex items-center gap-4 px-6 py-4 border-b border-[#283936] hover:bg-[#1a2423] transition-colors">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-[var(--primary-color)] flex items-center justify-center rounded-md bg-[#283936] shrink-0 size-12">
+<span class="material-symbols-outlined text-3xl">fitness_center</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-lg font-medium">Squats</p>
+<p class="text-[#9db9b4] text-sm">3 sets of 12 reps</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<input class="h-6 w-6 rounded border-[#3b544f] border-2 bg-transparent text-[var(--primary-color)] checked:bg-[var(--primary-color)] checked:border-[var(--primary-color)] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#3b544f] focus:outline-none cursor-pointer" type="checkbox"/>
+<button class="text-[#9db9b4] hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4 border-b border-[#283936] hover:bg-[#1a2423] transition-colors">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-[var(--primary-color)] flex items-center justify-center rounded-md bg-[#283936] shrink-0 size-12">
+<span class="material-symbols-outlined text-3xl">exercise</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-lg font-medium">Push-ups</p>
+<p class="text-[#9db9b4] text-sm">3 sets of 15 reps</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<input class="h-6 w-6 rounded border-[#3b544f] border-2 bg-transparent text-[var(--primary-color)] checked:bg-[var(--primary-color)] checked:border-[var(--primary-color)] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#3b544f] focus:outline-none cursor-pointer" type="checkbox"/>
+<button class="text-[#9db9b4] hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4 border-b border-[#283936] hover:bg-[#1a2423] transition-colors">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-[var(--primary-color)] flex items-center justify-center rounded-md bg-[#283936] shrink-0 size-12">
+<span class="material-symbols-outlined text-3xl">self_improvement</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-lg font-medium">Crunches</p>
+<p class="text-[#9db9b4] text-sm">3 sets of 20 reps</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<input class="h-6 w-6 rounded border-[#3b544f] border-2 bg-transparent text-[var(--primary-color)] checked:bg-[var(--primary-color)] checked:border-[var(--primary-color)] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#3b544f] focus:outline-none cursor-pointer" type="checkbox"/>
+<button class="text-[#9db9b4] hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4 border-b border-[#283936] hover:bg-[#1a2423] transition-colors">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-[var(--primary-color)] flex items-center justify-center rounded-md bg-[#283936] shrink-0 size-12">
+<span class="material-symbols-outlined text-3xl">sports_gymnastics</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-lg font-medium">Pull-ups</p>
+<p class="text-[#9db9b4] text-sm">3 sets of 10 reps</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<input class="h-6 w-6 rounded border-[#3b544f] border-2 bg-transparent text-[var(--primary-color)] checked:bg-[var(--primary-color)] checked:border-[var(--primary-color)] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#3b544f] focus:outline-none cursor-pointer" type="checkbox"/>
+<button class="text-[#9db9b4] hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4 px-6 py-4 hover:bg-[#1a2423] transition-colors">
+<div class="flex items-center gap-4 flex-1">
+<div class="text-[var(--primary-color)] flex items-center justify-center rounded-md bg-[#283936] shrink-0 size-12">
+<span class="material-symbols-outlined text-3xl">accessibility_new</span>
+</div>
+<div class="flex flex-col justify-center">
+<p class="text-white text-lg font-medium">Lunges</p>
+<p class="text-[#9db9b4] text-sm">3 sets of 15 reps</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<input class="h-6 w-6 rounded border-[#3b544f] border-2 bg-transparent text-[var(--primary-color)] checked:bg-[var(--primary-color)] checked:border-[var(--primary-color)] checked:bg-[image:--checkbox-tick-svg] focus:ring-0 focus:ring-offset-0 focus:border-[#3b544f] focus:outline-none cursor-pointer" type="checkbox"/>
+<button class="text-[#9db9b4] hover:text-white transition-colors">
+<span class="material-symbols-outlined">more_vert</span>
+</button>
+</div>
+</div>
+</div>
+<div class="flex justify-end pt-4">
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-md h-12 px-6 bg-[var(--primary-color)] text-[#111817] text-base font-bold leading-normal tracking-[0.015em] hover:bg-opacity-80 transition-opacity gap-2">
+<span class="material-symbols-outlined">add_circle</span>
+<span class="truncate">Add Exercise</span>
+</button>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

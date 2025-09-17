@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>Stitch Design</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #13ecc8;
+        --secondary-color: #283936;
+      }
+      .toggle-checkbox:checked + .toggle-label .toggle-dot {
+        transform: translateX(100%);
+      }
+      .toggle-checkbox:checked + .toggle-label {
+        background-color: var(--primary-color);
+      }
+    </style>
+</head>
+<body class="bg-[#111817] text-white" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-[var(--secondary-color)] px-10 py-3">
+<div class="flex items-center gap-4">
+<svg class="size-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<path d="M24 45.8096C19.6865 45.8096 15.4698 44.5305 11.8832 42.134C8.29667 39.7376 5.50128 36.3314 3.85056 32.3462C2.19985 28.361 1.76794 23.9758 2.60947 19.7452C3.451 15.5145 5.52816 11.6284 8.57829 8.5783C11.6284 5.52817 15.5145 3.45101 19.7452 2.60948C23.9758 1.76795 28.361 2.19986 32.3462 3.85057C36.3314 5.50129 39.7376 8.29668 42.134 11.8833C44.5305 15.4698 45.8096 19.6865 45.8096 24L24 24L24 45.8096Z" fill="currentColor"></path>
+</svg>
+<h1 class="text-xl font-bold tracking-tighter">FitTrack</h1>
+</div>
+<nav class="flex items-center gap-6 text-sm font-medium">
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Dashboard</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Workout</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Nutrition</a>
+<a class="hover:text-[var(--primary-color)] transition-colors" href="#">Note</a>
+<a class="text-[var(--primary-color)] font-semibold" href="#">Settings</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="flex items-center justify-center rounded-full h-10 w-10 bg-[var(--secondary-color)] hover:bg-opacity-80 transition-colors">
+<span class="material-symbols-outlined text-xl"> notifications </span>
+</button>
+<div class="size-10 rounded-full bg-cover bg-center" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCETZ5c_O4Rq4CA6jHc68juq748C2fvmCwM62Bamw3XDRdkX8KABOAPZooacOC2hzRxWfwc_8R5_8eF-wTkS6S5ej39PjDjY5A_ChUI1z7l6i7rBzEHv9NaW4OGi1Vssww5NQKox520R5EAkmDLiocKRqro_m6UZxcDPT6nZ5X8dA8BttF9iOFB_TW93Yr-sIJpWWrEXgiZNHeXMY6qeVWo19vO4nkexLzIfJ4uyQ1XyuKY5jxpwZy-vT-i1QgcGPZu3z0aehsDGfuM");'></div>
+</div>
+</header>
+<main class="flex-1 w-full max-w-6xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-1 space-y-8">
+<div class="bg-[#1A2423] rounded-lg border border-[var(--secondary-color)] p-6">
+<h3 class="text-xl font-bold mb-4">User Preferences</h3>
+<div class="space-y-6">
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1" for="calorie-goal">Daily Calorie Goal</label>
+<div class="flex items-center gap-4">
+<input class="bg-[#111817] border border-[var(--secondary-color)] rounded-md px-3 py-2 w-24 text-center text-white focus:ring-[var(--primary-color)] focus:border-[var(--primary-color)]" id="calorie-goal" type="number" value="2500"/>
+<input class="w-full h-2 bg-[var(--secondary-color)] rounded-lg appearance-none cursor-pointer accent-[var(--primary-color)]" max="5000" min="1000" type="range" value="2500"/>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-300">Preferred Measurement Units</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 text-sm rounded-md bg-[var(--primary-color)] text-black">Metric</button>
+<button class="px-3 py-1 text-sm rounded-md bg-[var(--secondary-color)] hover:bg-opacity-80">Imperial</button>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-300">Motivational Quotes</span>
+<label class="relative inline-flex items-center cursor-pointer" for="quotes-toggle">
+<input checked="" class="sr-only toggle-checkbox" id="quotes-toggle" type="checkbox"/>
+<div class="toggle-label w-11 h-6 bg-[var(--secondary-color)] rounded-full transition-colors">
+<div class="toggle-dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform"></div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<div class="bg-[#1A2423] rounded-lg border border-[var(--secondary-color)] p-6">
+<h3 class="text-xl font-bold mb-4">Appearance</h3>
+<div class="space-y-6">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-300">Theme</span>
+<div class="flex items-center gap-2">
+<button class="px-3 py-1 text-sm rounded-md bg-[var(--secondary-color)] hover:bg-opacity-80">Light</button>
+<button class="px-3 py-1 text-sm rounded-md bg-[var(--primary-color)] text-black">Dark</button>
+</div>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-1" for="font-size">Font Size</label>
+<input class="w-full h-2 bg-[var(--secondary-color)] rounded-lg appearance-none cursor-pointer accent-[var(--primary-color)]" id="font-size" max="120" min="80" type="range" value="100"/>
+</div>
+<div>
+<label class="block text-sm font-medium text-gray-300 mb-2">Accent Color</label>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-[#13ecc8] border-2 border-white"></button>
+<button class="w-8 h-8 rounded-full bg-blue-500"></button>
+<button class="w-8 h-8 rounded-full bg-pink-500"></button>
+<button class="w-8 h-8 rounded-full bg-yellow-500"></button>
+<button class="w-8 h-8 rounded-full bg-purple-500"></button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-1 space-y-8">
+<div class="bg-[#1A2423] rounded-lg border border-[var(--secondary-color)] p-6">
+<h3 class="text-xl font-bold mb-4">Notifications</h3>
+<div class="space-y-4">
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-300">Workout Reminders</span>
+<label class="relative inline-flex items-center cursor-pointer" for="workout-toggle">
+<input checked="" class="sr-only toggle-checkbox" id="workout-toggle" type="checkbox"/>
+<div class="toggle-label w-11 h-6 bg-[var(--secondary-color)] rounded-full transition-colors">
+<div class="toggle-dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform"></div>
+</div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-300">Nutrition Reminders</span>
+<label class="relative inline-flex items-center cursor-pointer" for="nutrition-toggle">
+<input checked="" class="sr-only toggle-checkbox" id="nutrition-toggle" type="checkbox"/>
+<div class="toggle-label w-11 h-6 bg-[var(--secondary-color)] rounded-full transition-colors">
+<div class="toggle-dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform"></div>
+</div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-300">Daily Progress Updates</span>
+<label class="relative inline-flex items-center cursor-pointer" for="progress-toggle">
+<input class="sr-only toggle-checkbox" id="progress-toggle" type="checkbox"/>
+<div class="toggle-label w-11 h-6 bg-[var(--secondary-color)] rounded-full transition-colors">
+<div class="toggle-dot absolute left-1 top-1 bg-white w-4 h-4 rounded-full transition-transform"></div>
+</div>
+</label>
+</div>
+</div>
+</div>
+<div class="bg-[#1A2423] rounded-lg border border-[var(--secondary-color)] p-6">
+<h3 class="text-xl font-bold mb-4">Account &amp; Data</h3>
+<div class="space-y-4">
+<div class="flex items-center gap-4">
+<img alt="User profile picture" class="h-16 w-16 rounded-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCETZ5c_O4Rq4CA6jHc68juq748C2fvmCwM62Bamw3XDRdkX8KABOAPZooacOC2hzRxWfwc_8R5_8eF-wTkS6S5ej39PjDjY5A_ChUI1z7l6i7rBzEHv9NaW4OGi1Vssww5NQKox520R5EAkmDLiocKRqro_m6UZxcDPT6nZ5X8dA8BttF9iOFB_TW93Yr-sIJpWWrEXgiZNHeXMY6qeVWo19vO4nkexLzIfJ4uyQ1XyuKY5jxpwZy-vT-i1QgcGPZu3z0aehsDGfuM"/>
+<div>
+<p class="font-bold text-lg">Alex Johnson</p>
+<p class="text-sm text-gray-400">alex.j@example.com</p>
+</div>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-300">Export Data</span>
+<button class="px-3 py-1 text-sm rounded-md bg-[var(--secondary-color)] hover:bg-opacity-80">Export</button>
+</div>
+<div class="flex items-center justify-between">
+<span class="text-sm font-medium text-gray-300">Import Data</span>
+<button class="px-3 py-1 text-sm rounded-md bg-[var(--secondary-color)] hover:bg-opacity-80">Import</button>
+</div>
+<div class="border-t border-[var(--secondary-color)] my-2"></div>
+<button class="w-full px-4 py-2 text-sm rounded-md bg-red-600/20 text-red-400 border border-red-600/30 hover:bg-red-600/30">
+    Reset All Data
+</button>
+<p class="text-xs text-center text-gray-500">This action cannot be undone.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+</body></html>

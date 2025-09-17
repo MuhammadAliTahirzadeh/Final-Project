@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+<link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Lexend%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+<title>FitLife Dashboard</title>
+<link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<style type="text/tailwindcss">
+      :root {
+        --primary-color: #13ecc8;
+      }
+      .active-link {
+        color: var(--primary-color) !important;
+        border-bottom: 2px solid var(--primary-color);
+        padding-bottom: 4px;
+      }
+      .btn-primary {
+        background-color: var(--primary-color);
+        color: #111817;
+        font-weight: 700;
+        transition: background-color 0.3s ease;
+      }
+      .btn-primary:hover {
+        background-color: #0fbda2;
+      }
+    </style>
+</head>
+<body class="bg-[#111817] font-sans text-white">
+<div class="relative flex h-auto min-h-screen w-full flex-col dark group/design-root overflow-x-hidden" style='font-family: Lexend, "Noto Sans", sans-serif;'>
+<div class="layout-container flex h-full grow flex-col">
+<header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#283936] px-10 py-4">
+<div class="flex items-center gap-3 text-white">
+<svg class="h-8 w-8 text-[var(--primary-color)]" fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_6_543)">
+<path d="M42.1739 20.1739L27.8261 5.82609C29.1366 7.13663 28.3989 10.1876 26.2002 13.7654C24.8538 15.9564 22.9595 18.3449 20.6522 20.6522C18.3449 22.9595 15.9564 24.8538 13.7654 26.2002C10.1876 28.3989 7.13663 29.1366 5.82609 27.8261L20.1739 42.1739C21.4845 43.4845 24.5355 42.7467 28.1133 40.548C30.3042 39.2016 32.6927 37.3073 35 35C37.3073 32.6927 39.2016 30.3042 40.548 28.1133C42.7467 24.5355 43.4845 21.4845 42.1739 20.1739Z" fill="currentColor"></path>
+<path clip-rule="evenodd" d="M7.24189 26.4066C7.31369 26.4411 7.64204 26.5637 8.52504 26.3738C9.59462 26.1438 11.0343 25.5311 12.7183 24.4963C14.7583 23.2426 17.0256 21.4503 19.238 19.238C21.4503 17.0256 23.2426 14.7583 24.4963 12.7183C25.5311 11.0343 26.1438 9.59463 26.3738 8.52504C26.5637 7.64204 26.4411 7.31369 26.4066 7.24189C26.345 7.21246 26.143 7.14535 25.6664 7.1918C24.9745 7.25925 23.9954 7.5498 22.7699 8.14278C20.3369 9.32007 17.3369 11.4915 14.4142 14.4142C11.4915 17.3369 9.32007 20.3369 8.14278 22.7699C7.5498 23.9954 7.25925 24.9745 7.1918 25.6664C7.14534 26.143 7.21246 26.345 7.24189 26.4066ZM29.9001 10.7285C29.4519 12.0322 28.7617 13.4172 27.9042 14.8126C26.465 17.1544 24.4686 19.6641 22.0664 22.0664C19.6641 24.4686 17.1544 26.465 14.8126 27.9042C13.4172 28.7617 12.0322 29.4519 10.7285 29.9001L21.5754 40.747C21.6001 40.7606 21.8995 40.931 22.8729 40.7217C23.9424 40.4916 25.3821 39.879 27.0661 38.8441C29.1062 37.5904 31.3734 35.7982 33.5858 33.5858C35.7982 31.3734 37.5904 29.1062 38.8441 27.0661C39.879 25.3821 40.4916 23.9425 40.7216 22.8729C40.931 21.8995 40.7606 21.6001 40.747 21.5754L29.9001 10.7285ZM29.2403 4.41187L43.5881 18.7597C44.9757 20.1473 44.9743 22.1235 44.6322 23.7139C44.2714 25.3919 43.4158 27.2666 42.252 29.1604C40.8128 31.5022 38.8165 34.012 36.4142 36.4142C34.012 38.8165 31.5022 40.8128 29.1604 42.252C27.2666 43.4158 25.3919 44.2714 23.7139 44.6322C22.1235 44.9743 20.1473 44.9757 18.7597 43.5881L4.41187 29.2403C3.29027 28.1187 3.08209 26.5973 3.21067 25.2783C3.34099 23.9415 3.8369 22.4852 4.54214 21.0277C5.96129 18.0948 8.43335 14.7382 11.5858 11.5858C14.7382 8.43335 18.0948 5.9613 21.0277 4.54214C22.4852 3.8369 23.9415 3.34099 25.2783 3.21067C26.5973 3.08209 28.1187 3.29028 29.2403 4.41187Z" fill="currentColor" fill-rule="evenodd"></path>
+</g>
+<defs>
+<clipPath id="clip0_6_543"><rect fill="white" height="48" width="48"></rect></clipPath>
+</defs>
+</svg>
+<h1 class="text-xl font-bold tracking-tight">FitLife</h1>
+</div>
+<nav class="flex flex-1 justify-center">
+<div class="flex items-center gap-10">
+<a class="active-link text-sm font-medium leading-normal transition-colors hover:text-[var(--primary-color)]" href="#">Dashboard</a>
+<a class="text-sm font-medium leading-normal text-gray-400 transition-colors hover:text-[var(--primary-color)]" href="#">Workout</a>
+<a class="text-sm font-medium leading-normal text-gray-400 transition-colors hover:text-[var(--primary-color)]" href="#">Nutrition</a>
+<a class="text-sm font-medium leading-normal text-gray-400 transition-colors hover:text-[var(--primary-color)]" href="#">Note</a>
+<a class="text-sm font-medium leading-normal text-gray-400 transition-colors hover:text-[var(--primary-color)]" href="#">Settings</a>
+</div>
+</nav>
+<div class="flex items-center gap-4">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA-AT001a1p_TTgyq2W_HidWi0xRtkOHpmGuysMjql74rMy-FJlPdD7biEkY7tabnDGnJpBRFe0AS4yS_z-yhFEHCxOS0Onh75fdIet3j88JUsvTogDDCDnmNM9Y1BF-kihFhhrrOJC-eb7To9vPnGjCO4nW8rvYJUAb9RKaU3linjB_f4ZH_rknuRxDh_IXKeZFqII94GPNontbKlioEgdrfIfbYHoUmwWG9FyTphw2Lf62qfYxHIcozgbRM6Myzgqv5nwzqTVsI1K");'></div>
+</div>
+</header>
+<main class="flex flex-1 justify-center py-10 px-4 sm:px-10">
+<div class="layout-content-container flex flex-col w-full max-w-5xl">
+<div class="px-4 pb-8">
+<h2 class="text-4xl font-bold tracking-tight">Today's Progress</h2>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 px-4">
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-[#1c2725]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl text-[var(--primary-color)]"> fitness_center </span>
+<p class="text-lg font-semibold">Workouts Completed</p>
+</div>
+<p class="text-5xl font-bold tracking-tighter">2</p>
+</div>
+<div class="flex flex-col gap-4 rounded-xl p-6 bg-[#1c2725]">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-3xl text-[var(--primary-color)]"> restaurant_menu </span>
+<p class="text-lg font-semibold">Nutrition Summary</p>
+</div>
+<p class="text-5xl font-bold tracking-tighter">2000 <span class="text-3xl font-medium">kcal</span></p>
+</div>
+</div>
+<h3 class="text-2xl font-bold tracking-tight px-4 pb-4 pt-10">Quick Actions</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
+<div class="flex items-center gap-6 rounded-xl bg-[#1c2725] p-6 shadow-lg transition-transform hover:scale-105">
+<div class="flex-1 flex flex-col gap-3">
+<h4 class="text-lg font-bold">Start Workout</h4>
+<p class="text-[#9db9b4] text-sm">Begin your fitness journey with a tailored workout plan.</p>
+<button class="btn-primary mt-2 flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 text-sm w-fit">
+<span>Go</span>
+<span class="material-symbols-outlined ml-2">arrow_forward</span>
+</button>
+</div>
+<div class="w-32 h-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCOJ9Ccii4rpDN_7DsiawmStHQARXEC8zyvdD9Z8Pzj7J1fR8wWWRTjXd6_4_hOTbudO3f3zXSONY2WyW725B8w9_j7YwD6HbaImh8nUt9394jQJsimMdvTVBhBHcOS1SJbQeBaUMyX8TsV_456SVymoNLgwUYc0W0LYpvLAw4jmpEeM3-JXV_n6whwdHJEiCQMbC3ymj20lregcOQGzCKTZTEM5KQUQQI3L36X1yCNYedj4GiA_rcjFnwmInKHWD1AZajZMK_sWdcz");'></div>
+</div>
+<div class="flex items-center gap-6 rounded-xl bg-[#1c2725] p-6 shadow-lg transition-transform hover:scale-105">
+<div class="flex-1 flex flex-col gap-3">
+<h4 class="text-lg font-bold">Log Nutrition</h4>
+<p class="text-[#9db9b4] text-sm">Track your daily food intake to stay on top of your goals.</p>
+<button class="btn-primary mt-2 flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 text-sm w-fit">
+<span>Go</span>
+<span class="material-symbols-outlined ml-2">arrow_forward</span>
+</button>
+</div>
+<div class="w-32 h-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCHSiWUyjVBGq5OZhP7pqD5zcDKoiNvYIiv8Jd_xFrSE3ZfCrrhYJxnDWOk_x_ID3z_XFRXVW9kaNBtnYU-hdfCIiQfCXB-VDdhdZX7s_BtDbAqhA16kIzZXMrjexsQBA6Fw4dZfsoHy34OvKlWKgTk30Orfls3jx5kkdcMU3eBNyNsac91e_h26e6UDAlGQN4aqmVlfqPsgtN9YKLPDKrtJEzRfwU8aGFAXBKP6l1RyKHEnrRV1sErSKTlmR-qK5cbzIS7tUH2ykR1");'></div>
+</div>
+<div class="flex items-center gap-6 rounded-xl bg-[#1c2725] p-6 shadow-lg transition-transform hover:scale-105">
+<div class="flex-1 flex flex-col gap-3">
+<h4 class="text-lg font-bold">Add Note</h4>
+<p class="text-[#9db9b4] text-sm">Jot down your thoughts, progress, or any important updates.</p>
+<button class="btn-primary mt-2 flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 text-sm w-fit">
+<span>Go</span>
+<span class="material-symbols-outlined ml-2">arrow_forward</span>
+</button>
+</div>
+<div class="w-32 h-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBwRtFWxpzudF5wErIjKuWVXRaJl-IeJhhpZjBOs-ddnsZSILBDG1DLHoAugyYZrABStVIUCiErgJEs90CtARuygwIQY65_FWc4JUZklvnpxl-bh2f94ACrnXEY07cd9HJHypT2y634yjPgQZNPTJIgQs5QdpWzpwBKdFF49n2jzW0M7mUm9e-JENazKgG5ODbhpRK4c1QfxMKNMU0CA3sPRFPHobMvRpbXa8J3kLo0s3n8rlQio9cp18roHgh5HMECcpqkwLme27Ra");'></div>
+</div>
+<div class="flex items-center gap-6 rounded-xl bg-[#1c2725] p-6 shadow-lg transition-transform hover:scale-105">
+<div class="flex-1 flex flex-col gap-3">
+<h4 class="text-lg font-bold">Settings</h4>
+<p class="text-[#9db9b4] text-sm">Customize your profile and preferences.</p>
+<button class="btn-primary mt-2 flex min-w-[100px] items-center justify-center rounded-lg h-10 px-5 text-sm w-fit">
+<span>Go</span>
+<span class="material-symbols-outlined ml-2">arrow_forward</span>
+</button>
+</div>
+<div class="w-32 h-32 bg-center bg-no-repeat bg-cover rounded-lg flex-shrink-0" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA3Vb2ZORFoXxrDurgus1KAliaJCL7rWlKCVaQ5YE3IXoLFBGs-xcbrm1i4lwJ_m5NXMh-j-ZHbPR8BN8OJtm44Qd19RwlY3hWc8tWeWVQ-LjkgPtymgzNww2W_1VEsTAYZmwD648iucpGQB9kmxlSuXBCKu5nRY4tJu4RKsRjTg8H4WjWYDr41y8B1pHeizxt2MhCQESat2xz6PdpQfD9WvGxw1ZQG0C3XubvZGAtThI9e8ajWuop3MrA0o43qMGBwtWlJZDe2ECxG");'></div>
+</div>
+</div>
+<div class="p-4 mt-6">
+<div class="bg-gradient-to-r from-[var(--primary-color)] to-[#19d4b5] rounded-xl p-8 text-center shadow-2xl">
+<h3 class="text-2xl font-bold text-[#111817] mb-2">Motivational Tip</h3>
+<p class="text-lg font-medium text-[#1c2725]">
+                  "Consistency is key. Small, daily efforts lead to significant results over time. Keep pushing!"
+                </p>
+</div>
+</div>
+</div>
+</main>
+</div>
+</div>
+
+</body></html>
