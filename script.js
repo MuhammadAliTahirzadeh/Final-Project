@@ -1,25 +1,82 @@
 // FitLife Application JavaScript
+// Complete functionality for all pages
+
+(function() {
+    'use strict';
+    
+    // Ensure DOM is ready before initializing
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+    } else {
+        initApp();
+    }
+    
+    function initApp() {
+        try {
+            // Initialize the application
+            let app;
+            
+            // Wait for DOM to be ready before initializing
+            function initializeApp() {
+                try {
+                    app = new FitLifeApp();
+                    window.app = app;
+                    console.log('FitLife app initialized successfully');
+                } catch (error) {
+                    console.error('Error initializing FitLife app:', error);
+                    // Retry once after a short delay
+                    setTimeout(() => {
+                        try {
+                            app = new FitLifeApp();
+                            window.app = app;
+                            console.log('FitLife app initialized successfully on retry');
+                        } catch (retryError) {
+                            console.error('Failed to initialize FitLife app on retry:', retryError);
+                        }
+                    }, 100);
+                }
+            }
+            
+            // Multiple ways to ensure the app starts
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initializeApp);
+            } else {
+                initializeApp();
+            }
+            
+            // Fallback initialization
+            window.addEventListener('load', () => {
+                if (!window.app) {
+                    initializeApp();
+                }
+            });
+            console.log('FitLife App initialized successfully');
+        } catch (error) {
+            console.error('Error initializing FitLife App:', error);
+        }
+    }
+
 class FitLifeApp {
     constructor() {
         this.data = {
-            workouts: JSON.parse(localStorage.getItem('fitlife_workouts')) || [
+            workouts: this.safeParseJSON('fitlife_workouts') || [
                 { id: 1, name: 'Squats', sets: 3, reps: 12, category: 'legs', completed: false, icon: 'fitness_center' },
                 { id: 2, name: 'Push-ups', sets: 3, reps: 15, category: 'arms', completed: false, icon: 'exercise' },
                 { id: 3, name: 'Crunches', sets: 3, reps: 20, category: 'core', completed: false, icon: 'self_improvement' },
                 { id: 4, name: 'Pull-ups', sets: 3, reps: 10, category: 'arms', completed: false, icon: 'sports_gymnastics' },
                 { id: 5, name: 'Lunges', sets: 3, reps: 15, category: 'legs', completed: false, icon: 'accessibility_new' }
             ],
-            meals: JSON.parse(localStorage.getItem('fitlife_meals')) || [
+            meals: this.safeParseJSON('fitlife_meals') || [
                 { id: 1, food: 'Grilled Chicken Salad', portion: '1 bowl', calories: 350, timestamp: new Date().toISOString() },
                 { id: 2, food: 'Greek Yogurt', portion: '1 cup', calories: 150, timestamp: new Date().toISOString() },
                 { id: 3, food: 'Banana', portion: '1 medium', calories: 105, timestamp: new Date().toISOString() }
             ],
-            notes: JSON.parse(localStorage.getItem('fitlife_notes')) || [
+            notes: this.safeParseJSON('fitlife_notes') || [
                 { id: 1, title: 'Morning Run', content: 'A quick run to start the day', category: 'workout', timestamp: new Date().toISOString() },
                 { id: 2, title: 'Evening Yoga', content: 'Relaxing yoga session', category: 'workout', timestamp: new Date().toISOString() },
                 { id: 3, title: 'Healthy Recipes', content: 'Collection of healthy recipes', category: 'nutrition', timestamp: new Date().toISOString() }
             ],
-            settings: JSON.parse(localStorage.getItem('fitlife_settings')) || {
+            settings: this.safeParseJSON('fitlife_settings') || {
                 calorieGoal: 2500,
                 units: 'metric',
                 motivationalQuotes: true,
@@ -42,7 +99,23 @@ class FitLifeApp {
             "Take care of your body. It's the only place you have to live."
         ];
         
-        this.init();
+        // Wait for DOM to be ready
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => this.init());
+        } else {
+            this.init();
+        }
+    }
+
+    // Safe JSON parsing with error handling
+    safeParseJSON(key) {
+        try {
+            const item = localStorage.getItem(key);
+            return item ? JSON.parse(item) : null;
+        } catch (error) {
+            console.warn(`Error parsing localStorage item ${key}:`, error);
+            return null;
+        }
     }
 
     init() {
@@ -143,13 +216,16 @@ class FitLifeApp {
                 </div>
                 <div class="workout-actions">
                     <input type="checkbox" class="workout-checkbox" ${workout.completed ? 'checked' : ''} 
-                           onchange="app.toggleWorkoutComplete(${workout.id})">
-                    <button class="workout-menu" onclick="app.deleteWorkout(${workout.id})">
+                           data-workout-id="${workout.id}">
+                    <button class="workout-menu" data-workout-id="${workout.id}" data-action="delete">
                         <span class="material-symbols-outlined">delete</span>
                     </button>
                 </div>
             </div>
         `).join('');
+
+        // Add event listeners after rendering
+        this.setupWorkoutEventListeners();
     }
 
     setupWorkoutFilters() {
@@ -162,6 +238,29 @@ class FitLifeApp {
                 this.currentFilter = filter;
                 this.renderWorkouts(filter);
             });
+        });
+    }
+
+    setupWorkoutEventListeners() {
+        const workoutList = document.getElementById('workoutList');
+        if (!workoutList) return;
+
+        // Use event delegation for better performance and deployment compatibility
+        workoutList.addEventListener('change', (e) => {
+            if (e.target.classList.contains('workout-checkbox')) {
+                const workoutId = parseInt(e.target.dataset.workoutId);
+                this.toggleWorkoutComplete(workoutId);
+            }
+        });
+
+        workoutList.addEventListener('click', (e) => {
+            if (e.target.closest('.workout-menu')) {
+                const button = e.target.closest('.workout-menu');
+                const workoutId = parseInt(button.dataset.workoutId);
+                if (button.dataset.action === 'delete') {
+                    this.deleteWorkout(workoutId);
+                }
+            }
         });
     }
 
@@ -215,15 +314,37 @@ class FitLifeApp {
                 </div>
                 <div class="meal-calories">${meal.calories} kcal</div>
                 <div class="meal-actions">
-                    <button class="meal-action-btn" onclick="app.editMeal(${meal.id})">
+                    <button class="meal-action-btn" data-meal-id="${meal.id}" data-action="edit">
                         <span class="material-symbols-outlined">edit</span>
                     </button>
-                    <button class="meal-action-btn danger" onclick="app.deleteMeal(${meal.id})">
+                    <button class="meal-action-btn danger" data-meal-id="${meal.id}" data-action="delete">
                         <span class="material-symbols-outlined">delete</span>
                     </button>
                 </div>
             </div>
         `).join('');
+
+        // Add event listeners for meal actions
+        this.setupMealEventListeners();
+    }
+
+    setupMealEventListeners() {
+        const mealsList = document.getElementById('mealsList');
+        if (!mealsList) return;
+
+        mealsList.addEventListener('click', (e) => {
+            if (e.target.closest('.meal-action-btn')) {
+                const button = e.target.closest('.meal-action-btn');
+                const mealId = parseInt(button.dataset.mealId);
+                const action = button.dataset.action;
+                
+                if (action === 'edit') {
+                    this.editMeal(mealId);
+                } else if (action === 'delete') {
+                    this.deleteMeal(mealId);
+                }
+            }
+        });
     }
 
     updateCalorieSummary() {
@@ -288,15 +409,37 @@ class FitLifeApp {
                     <p class="note-category">${note.category}</p>
                 </div>
                 <div class="note-actions">
-                    <button class="note-action-btn" onclick="app.editNote(${note.id})">
+                    <button class="note-action-btn" data-note-id="${note.id}" data-action="edit">
                         <span class="material-symbols-outlined">edit</span>
                     </button>
-                    <button class="note-action-btn" onclick="app.deleteNote(${note.id})">
+                    <button class="note-action-btn" data-note-id="${note.id}" data-action="delete">
                         <span class="material-symbols-outlined">delete</span>
                     </button>
                 </div>
             </div>
         `).join('');
+
+        // Add event listeners for note actions
+        this.setupNoteEventListeners();
+    }
+
+    setupNoteEventListeners() {
+        const notesGrid = document.getElementById('notesGrid');
+        if (!notesGrid) return;
+
+        notesGrid.addEventListener('click', (e) => {
+            if (e.target.closest('.note-action-btn')) {
+                const button = e.target.closest('.note-action-btn');
+                const noteId = parseInt(button.dataset.noteId);
+                const action = button.dataset.action;
+                
+                if (action === 'edit') {
+                    this.editNote(noteId);
+                } else if (action === 'delete') {
+                    this.deleteNote(noteId);
+                }
+            }
+        });
     }
 
     addNote(noteData) {
@@ -632,16 +775,29 @@ class FitLifeApp {
 
     // Data Management
     saveData(type) {
-        localStorage.setItem(`fitlife_${type}`, JSON.stringify(this.data[type]));
+        try {
+            localStorage.setItem(`fitlife_${type}`, JSON.stringify(this.data[type]));
+        } catch (error) {
+            console.error(`Error saving ${type} data:`, error);
+            // Fallback: alert user that data couldn't be saved
+            if (typeof alert !== 'undefined') {
+                alert('Unable to save data. Your browser may have disabled localStorage or storage is full.');
+            }
+        }
     }
 
     saveAllData() {
-        Object.keys(this.data).forEach(key => {
-            localStorage.setItem(`fitlife_${key}`, JSON.stringify(this.data[key]));
-        });
+        try {
+            Object.keys(this.data).forEach(key => {
+                localStorage.setItem(`fitlife_${key}`, JSON.stringify(this.data[key]));
+            });
+        } catch (error) {
+            console.error('Error saving all data:', error);
+            if (typeof alert !== 'undefined') {
+                alert('Unable to save data. Your browser may have disabled localStorage or storage is full.');
+            }
+        }
     }
 }
 
-// Initialize the application
-const app = new FitLifeApp();
-window.app = app;
+})(); // End of IIFE wrapper
